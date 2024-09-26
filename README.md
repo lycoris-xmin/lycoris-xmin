@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="//www.lycoris.cloud"><img src="https://user-images.githubusercontent.com/5679180/79618120-0daffb80-80be-11ea-819e-d2b0fa904d07.gif" width="27px"></a>
+  <a href="//www.lycoris.cloud" target="_blank"><img src="https://lycoris.cloud/upload/%E9%80%8F%E6%98%8E%E5%BA%95logo-2.png" width="27px"></a>
   <br><br />
   <samp>
     😆 Hey! Welcome to my profile
