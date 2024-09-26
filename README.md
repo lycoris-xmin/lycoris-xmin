@@ -7,7 +7,7 @@
     <br />🍉 Take a look at my stats  🌱
     <br />
     <br />
-    我是Lycoris 一个略懂.Net的虚弱程序猿
+    我是Lycoris 一个略懂.Net的暴躁程序猿
   </samp>
 
 | <a> <img align="center" src="https://github-readme-stats.vercel.app/api?username=lycoris-xmin&show_icons=true&include_all_commits=true&theme=buefy&hide_border=true" alt="lycoris's github stats" /> </a> | <a> <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lycoris-xmin&layout=compact&theme=buefy&hide_border=true" /> </a> | 
