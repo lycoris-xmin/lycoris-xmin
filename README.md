@@ -44,3 +44,7 @@
 <a><img height="20" alt="vue" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png"></a> 
 <a><img height="20" alt="docker" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png"></a> 
 </p>
+
+![IceEnd's GitHub stats](https://github-immortality.vercel.app/api?username=lycoris-xmin)
+
+![GitHub Streak](https://streak-stats.demolab.com/?user=lycoris-xmin)
