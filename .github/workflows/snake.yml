@@ -13,38 +13,40 @@ jobs:
     permissions:
       contents: write
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
 
     steps:
-      # 1. Checkout repo
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Generate snake SVG
+      # 2. Generate snake SVG (public + private repos)
       - name: Generate github-contribution-grid-snake.svg
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ secrets.MY_PAT }} # 使用 PAT 访问私有仓库
           outputs: |
             github-contribution-grid-snake.svg
             github-contribution-grid-snake-dark.svg?palette=github-dark
+          # 可选参数，如果想统计 PR / issues
+          # args: "--include-pulls --include-issues"
 
       # 3. Push snake animation to assets branch
       - name: Push snake animation to assets branch
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.MY_PAT }}
           publish_branch: assets
           publish_dir: .
           force_orphan: true
 
-      # 4. Update README.md with snake timestamp
+      # 4. Update README.md timestamp to refresh cache
       - name: Update README.md timestamp
         run: |
           TIMESTAMP="<!-- Snake animation last update: $(date -u) -->"
           README_FILE="README.md"
 
-          # 如果文件中已有注释，替换；没有就加在文件开头
           if grep -q "Snake animation last update" $README_FILE; then
             sed -i "s/<!-- Snake animation last update:.*-->/$(echo $TIMESTAMP)/" $README_FILE
           else
