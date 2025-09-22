@@ -65,16 +65,16 @@
     <tr>
       <td>
         <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=ayangweb&theme=vue-dark&show_icons=true&hide_border=true">
-          <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=ayangweb&theme=vue&show_icons=true&hide_border=true">
-          <img src="https://github-readme-stats.vercel.app/api?username=ayangweb&theme=vue&show_icons=true&hide_border=true">
+          <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=lycoris-xmin&theme=vue-dark&show_icons=true&hide_border=true">
+          <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=lycoris-xmin&theme=vue&show_icons=true&hide_border=true">
+          <img src="https://github-readme-stats.vercel.app/api?username=lycoris-xmin&theme=vue&show_icons=true&hide_border=true">
         </picture>
       </td>
       <td>
         <picture>
-          <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=ayangweb&theme=vue-dark&layout=compact&hide_border=true">
-          <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=ayangweb&theme=vue&layout=compact&hide_border=true">
-          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ayangweb&theme=vue&layout=compact&hide_border=true">
+          <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=lycoris-xmin&theme=vue-dark&layout=compact&hide_border=true">
+          <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=lycoris-xmin&theme=vue&layout=compact&hide_border=true">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=lycoris-xmin&theme=vue&layout=compact&hide_border=true">
         </picture>
       </td>
     </tr>
@@ -82,30 +82,3 @@
 </table>
 
 <br>
-
-<!-- LANGS Section -->
-<p align="center">
-  <b>📊 Languages & Stats</b>
-</p>
-<div align="center">
-</div>
-<!-- LANGS START -->
-| Language | Bytes |
-| --- | --- |
-| C# | 9094502 |
-| Java | 5601337 |
-| JavaScript | 4442966 |
-| C++ | 2454709 |
-| Vue | 1783131 |
-| TypeScript | 628982 |
-| HTML | 190711 |
-| CSS | 134449 |
-| C | 83808 |
-| SCSS | 28480 |
-| Shell | 26252 |
-| Dockerfile | 19537 |
-| Python | 7472 |
-| Go | 4771 |
-| Clarion | 1363 |
-| Inno Setup | 825 |
-<!-- LANGS END -->
