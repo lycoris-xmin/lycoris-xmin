@@ -2,7 +2,7 @@ name: generate animation
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 */2 * * *' # 每 2 小时执行一次
   workflow_dispatch:
   push:
     branches:
@@ -16,37 +16,37 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      # 1. Checkout repository
+      # 1. Checkout 仓库
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Generate snake SVG (public + private repos)
+      # 2. 生成 Snake SVG（支持私有仓库 + PR/Issue）
       - name: Generate github-contribution-grid-snake.svg
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          github_token: ${{ secrets.MY_PAT }} # 使用 PAT 访问私有仓库
+          github_token: ${{ secrets.MY_PAT }} # 使用 PAT
           outputs: |
             github-contribution-grid-snake.svg
             github-contribution-grid-snake-dark.svg?palette=github-dark
-          # 可选参数，如果想统计 PR / issues
-          # args: "--include-pulls --include-issues"
+          args: '--include-pulls --include-issues' # 包含 PR/Issue
 
-      # 3. Push snake animation to assets branch
+      # 3. 推送 SVG 到 assets 分支
       - name: Push snake animation to assets branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.MY_PAT }}
           publish_branch: assets
           publish_dir: .
-          force_orphan: true
+          force_orphan: true # 清理旧文件
 
-      # 4. Update README.md timestamp to refresh cache
+      # 4. 更新 README.md 时间戳刷新缓存
       - name: Update README.md timestamp
         run: |
           TIMESTAMP="<!-- Snake animation last update: $(date -u) -->"
           README_FILE="README.md"
 
+          # 替换已有注释，或插入到开头
           if grep -q "Snake animation last update" $README_FILE; then
             sed -i "s/<!-- Snake animation last update:.*-->/$(echo $TIMESTAMP)/" $README_FILE
           else
