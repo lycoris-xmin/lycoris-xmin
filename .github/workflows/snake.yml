@@ -1,60 +1,75 @@
-name: generate animation
+name: update profile
 
 on:
   schedule:
-    - cron: '0 */2 * * *' # 每 2 小时执行一次
+    - cron: '0 */2 * * *'
   workflow_dispatch:
   push:
     branches:
       - main
 
 jobs:
-  generate:
+  update:
+    runs-on: ubuntu-latest
     permissions:
       contents: write
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-
     steps:
-      # 1. Checkout 仓库
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      # 2. 生成 Snake SVG（支持私有仓库 + PR/Issue）
-      - name: Generate github-contribution-grid-snake.svg
+      # 生成 Snake SVG
+      - name: Generate snake
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          github_token: ${{ secrets.MY_PAT }} # 使用 PAT
+          github_token: ${{ secrets.MY_PAT }}
           outputs: |
             github-contribution-grid-snake.svg
             github-contribution-grid-snake-dark.svg?palette=github-dark
-          args: '--include-pulls --include-issues' # 包含 PR/Issue
+          args: '--include-pulls --include-issues'
 
-      # 3. 推送 SVG 到 assets 分支
-      - name: Push snake animation to assets branch
+      # 生成语言统计
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install node-fetch@3
+
+      - name: Generate LANGS.md
+        env:
+          MY_PAT: ${{ secrets.MY_PAT }}
+          GITHUB_USER: ${{ github.repository_owner }}
+        run: node scripts/generate-langs.js
+
+      # 更新 README
+      - name: Update README.md
+        run: |
+          TIMESTAMP="<!-- Last update: $(date -u) -->"
+          README_FILE="README.md"
+          # 替换或插入时间戳
+          if grep -q "Last update" $README_FILE; then
+            sed -i "s/<!-- Last update:.*-->/$(echo $TIMESTAMP)/" $README_FILE
+          else
+            sed -i "1i $TIMESTAMP" $README_FILE
+          fi
+
+          # 合并 Snake + LANGS.md 到 README
+          sed -i '/<!-- LANGS START -->/,/<!-- LANGS END -->/d' $README_FILE
+          echo -e "<!-- LANGS START -->\n$(cat LANGS.md)\n<!-- LANGS END -->" >> $README_FILE
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore: update snake & langs [skip ci]" || echo "No changes to commit"
+          git push
+
+      # 推送 Snake SVG 到 assets 分支
+      - name: Push snake to assets branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.MY_PAT }}
           publish_branch: assets
           publish_dir: .
-          force_orphan: true # 清理旧文件
-
-      # 4. 更新 README.md 时间戳刷新缓存
-      - name: Update README.md timestamp
-        run: |
-          TIMESTAMP="<!-- Snake animation last update: $(date -u) -->"
-          README_FILE="README.md"
-
-          # 替换已有注释，或插入到开头
-          if grep -q "Snake animation last update" $README_FILE; then
-            sed -i "s/<!-- Snake animation last update:.*-->/$(echo $TIMESTAMP)/" $README_FILE
-          else
-            sed -i "1i $TIMESTAMP" $README_FILE
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add $README_FILE
-          git commit -m "chore: update snake animation timestamp [skip ci]" || echo "No changes to commit"
-          git push
+          force_orphan: true
