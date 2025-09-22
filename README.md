@@ -1,18 +1,18 @@
 <p align="center">
-  <a href="//www.lycoris.cloud" target="_blank" title="暴躁程序猿的小破站" alt="暴躁程序猿的小破站"><img src="https://lycoris.cloud/upload/%E9%80%8F%E6%98%8E%E5%BA%95logo-2.png" width="60px" title="暴躁程序猿的小破站" alt="暴躁程序猿的小破站"></a>
-  <br><br />
+  <a href="//www.lycoris.cloud" target="_blank" title="暴躁程序猿的小破站">
+    <img src="https://lycoris.cloud/upload/%E9%80%8F%E6%98%8E%E5%BA%95logo-2.png" width="60px" alt="暴躁程序猿的小破站">
+  </a>
+  <br><br>
   <samp>
-    😆 Hey! Welcome to my profile
-    <br />
-    <br />🍉 Take a look at my stats  🌱
-    <br />
-    <br />
-    我是Lycoris 一个略懂.Net的暴躁程序猿
+    我是 Lycoris，一个略懂 .NET 的暴躁程序猿
   </samp>
 </p>
 
-<table>
-  <tbody>
+<br>
+
+<!-- Stats Table -->
+<div align="center">
+  <table>
     <tr>
       <td>
         <picture>
@@ -29,24 +29,32 @@
         </picture>
       </td>
     </tr>
-  </tbody>
-</table>
+  </table>
+</div>
 
-<br />
+<br>
 
-<p align="right">
-  <a><img height="20" alt="javascript" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/csharp/csharp.png"></a>
-  <a><img height="20" alt="javascript" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/dotnet/dotnet.png"></a>
-<a><img height="20" alt="javascript" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></a>
-<a><img height="20" alt="typescript" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"></a>
-<a><img height="20" alt="react" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"></a>
-<a><img height="20" alt="nodejs" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"></a> 
-<a><img height="20" alt="vue" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png"></a> 
-<a><img height="20" alt="docker" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png"></a> 
-</p>
+<!-- Skills -->
+<div align="center">
+  <img height="28" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/csharp/csharp.png" alt="C#">
+  <img height="28" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/dotnet/dotnet.png" alt=".NET">
+  <img height="28" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png" alt="JavaScript">
+  <img height="28" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" alt="TypeScript">
+  <img height="28" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" alt="React">
+  <img height="28" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" alt="Node.js">
+  <img height="28" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/vue/vue.png" alt="Vue">
+  <img height="28" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/docker/docker.png" alt="Docker">
+</div>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lycoris-xmin/lycoris-xmin/assets/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/lycoris-xmin/lycoris-xmin/assets/github-contribution-grid-snake.svg">
-  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/lycoris-xmin/lycoris-xmin/assets/github-contribution-grid-snake.svg">
-</picture>
+<br>
+
+<!-- Snake Animation -->
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lycoris-xmin/lycoris-xmin/assets/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/lycoris-xmin/lycoris-xmin/assets/github-contribution-grid-snake.svg">
+    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/lycoris-xmin/lycoris-xmin/assets/github-contribution-grid-snake.svg">
+  </picture>
+</div>
+
+<br>
