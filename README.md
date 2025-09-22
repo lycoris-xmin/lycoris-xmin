@@ -1,3 +1,4 @@
+<!-- Last update: Mon Sep 22 05:36:23 UTC 2025 -->
 <!-- Profile Header -->
 <p align="center">
   <a href="//www.lycoris.cloud" target="_blank" title="暴躁程序猿的小破站">
@@ -61,7 +62,24 @@
   <b>📊 Languages & Stats</b>
 </p>
 <div align="center">
-  <!-- LANGS START -->
-  <!-- 自动生成语言统计表 -->
-  <!-- LANGS END -->
 </div>
+<!-- LANGS START -->
+| Language | Bytes |
+| --- | --- |
+| C# | 9094502 |
+| Java | 5601337 |
+| JavaScript | 4442966 |
+| C++ | 2454709 |
+| Vue | 1783131 |
+| TypeScript | 628982 |
+| HTML | 190711 |
+| CSS | 134449 |
+| C | 83808 |
+| SCSS | 28480 |
+| Shell | 26252 |
+| Dockerfile | 19537 |
+| Python | 7472 |
+| Go | 4771 |
+| Clarion | 1363 |
+| Inno Setup | 825 |
+<!-- LANGS END -->
