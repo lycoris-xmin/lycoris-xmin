@@ -1,14 +1,9 @@
 name: generate animation
 
 on:
-  # run automatically every 2 hours
   schedule:
     - cron: '0 */2 * * *'
-
-  # allows to manually run the job at any time
   workflow_dispatch:
-
-  # run on every push on the main branch
   push:
     branches:
       - main
@@ -21,7 +16,12 @@ jobs:
     timeout-minutes: 5
 
     steps:
-      - name: generate github-contribution-grid-snake.svg
+      # 1. Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Generate snake SVG
+      - name: Generate github-contribution-grid-snake.svg
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -29,9 +29,30 @@ jobs:
             github-contribution-grid-snake.svg
             github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      - name: push github-contribution-grid-snake.svg to the output branch
+      # 3. Push snake animation to assets branch
+      - name: Push snake animation to assets branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: assets
           publish_dir: .
+          force_orphan: true
+
+      # 4. Update README.md with snake timestamp
+      - name: Update README.md timestamp
+        run: |
+          TIMESTAMP="<!-- Snake animation last update: $(date -u) -->"
+          README_FILE="README.md"
+
+          # 如果文件中已有注释，替换；没有就加在文件开头
+          if grep -q "Snake animation last update" $README_FILE; then
+            sed -i "s/<!-- Snake animation last update:.*-->/$(echo $TIMESTAMP)/" $README_FILE
+          else
+            sed -i "1i $TIMESTAMP" $README_FILE
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add $README_FILE
+          git commit -m "chore: update snake animation timestamp [skip ci]" || echo "No changes to commit"
+          git push
